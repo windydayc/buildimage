@@ -1,0 +1,12 @@
+apiVersion: sealer.aliyun.com/v1alpha1
+kind: Plugin
+metadata:
+  name: OpenYurtConfigurationPlugin
+spec:
+  type: SHELL
+  action: PreGuest
+  'on': master
+  data: |
+    echo "[INFO] Label each master node: openyurt.io/is-edge-worker=false"
+    master_node_name=`echo $HOSTNAME | awk '{print tolower($0)}'`
+    kubectl label node ${master_node_name} openyurt.io/is-edge-worker=false

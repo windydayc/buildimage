@@ -1,0 +1,14 @@
+## This yaml is used to set values in openyurt/yurt-app-manager helm chart,
+## see: https://openyurtio.github.io/openyurt-helm
+
+tolerations:
+  - key: node-role.kubernetes.io/master
+    operator: Exists
+    effect: NoSchedule
+
+admissionWebhooks:
+  patch:
+    tolerations:
+      - key: node-role.kubernetes.io/master
+        operator: Exists
+        effect: NoSchedule
