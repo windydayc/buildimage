@@ -34,7 +34,7 @@ echo "[INFO] Setup Yurthub Settings"
 kubectl apply -f manifests/yurthub-cfg.yaml
 
 echo "[INFO] Install helm"
-tar -zxvf helm-v3.6.0-linux-amd64.tar.gz && cp linux-amd64/helm /usr/bin && chmod +x /usr/bin/helm
+tar -zxvf helm-v3.9.4-linux-amd64.tar.gz && cp linux-amd64/helm /usr/bin && chmod +x /usr/bin/helm
 
 echo "[INFO] Setup yurt-app-manager"
 helm repo add openyurt https://openyurtio.github.io/openyurt-helm \

@@ -18,10 +18,10 @@ jobs:
 
       - name: Build Cluster Image
         working-directory: src/github.com/buildimage/openyurt-latest
-        run: sudo sealer build -t oy-k8s1.22.8:latest -f Kubefile .
+        run: sudo sealer build -t oy-final:latest -f Kubefile .
 
       - name: Push Cluster Image to Dockerhub
         run: |
           sudo sealer login registry-1.docker.io -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
-          sudo sealer tag oy-k8s1.22.8:latest registry-1.docker.io/${{ secrets.DOCKERHUB_USERNAME }}/oy-k8s1.22.8:latest
-          sudo sealer push registry-1.docker.io/${{ secrets.DOCKERHUB_USERNAME }}/oy-k8s1.22.8:latest
+          sudo sealer tag oy-final:latest registry-1.docker.io/${{ secrets.DOCKERHUB_USERNAME }}/oy-final:latest
+          sudo sealer push registry-1.docker.io/${{ secrets.DOCKERHUB_USERNAME }}/oy-final:latest
